@@ -5,11 +5,13 @@ import androidx.lifecycle.SavedStateHandle
 import de.genericandwildcard.scopedserviceexample.navigation.destination.Destination
 import kotlinx.coroutines.flow.StateFlow
 
+typealias BackStack = List<Destination>
+
 /**
  * Contains a stack of screens and an ability to mutate it.
  */
 interface NavigationState {
-    val destinations: StateFlow<List<Destination>>
+    val destinations: StateFlow<BackStack>
 
     fun mutate(block: BackStack.() -> BackStack)
 }
